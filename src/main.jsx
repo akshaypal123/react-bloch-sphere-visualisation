@@ -7,3 +7,4 @@ ReactDOM.createRoot(document.getElementById('main-container')).render(
     <App />
   </React.StrictMode>,
 )
+

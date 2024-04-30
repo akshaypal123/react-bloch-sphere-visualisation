@@ -7,7 +7,7 @@ const BlochSphere = (props) => {
     const yDir = new THREE.Vector3(0, 1, 0).normalize();
     const zDir = new THREE.Vector3(0, 0, 1).normalize();
     return (
-        <mesh visible={ true } position={ props.position }>
+        <mesh visible={ true } position={ props.position } rotation={ props.rotation }>
             <sphereGeometry args={[props.radius]} />
             <meshBasicMaterial color={props.color} wireframe={true} />
             <AxisArrow direction = {xDir} origin = {origin} length = {props.radius + .75} color = {'red'} />
