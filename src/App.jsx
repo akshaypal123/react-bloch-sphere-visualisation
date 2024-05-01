@@ -18,13 +18,16 @@ const App = () => {
       <nav className="navbar">
         <ul className="navbar-nav">
           <li>
-            <AngleSlider containerId={'theta-value-container'} text={'Polar angle'} valueId={'theta-value'} min={0} max={180} sliderId={'theta-slider'} />
+            <AngleSlider min={0} max={180} step={1} text={'Polar angle'} />
           </li>
           <li>
-            <GateButton id={'hadamard-button'} name={'Hadamard Gate'} />
+            <AngleSlider min={0} max={360} step={1} text={'Azimuthal angle'} />
           </li>
           <li>
-            <GateButton id={'pauliX-button'} name={'Pauli X Gate'} />
+            <GateButton id={'hadamard-button'} name={'H'} />
+          </li>
+          <li>
+            <GateButton id={'pauliX-button'} name={'P_X'} />
           </li>
         </ul>
       </nav>

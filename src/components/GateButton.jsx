@@ -1,3 +1,5 @@
+import './GateButton.css';
+
 const GateButton = (props) => {
     function applyGate() {
         console.log('Button was clicked!');
