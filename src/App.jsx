@@ -11,17 +11,23 @@ const App = () => {
   return (
     <>
       <Canvas>
-        <BlochSphere radius={2} color={'gray'} position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]} />
+        <BlochSphere radius={5} color={'gray'} position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]} />
         <CameraSetup />
         <OrbitControls target={[0, 0, 0]} />
       </Canvas>
       <nav className="navbar">
         <ul className="navbar-nav">
+          <li id="angles-title-container">
+            <h3 id="angles-title">Angles:</h3>
+          </li>
           <li>
             <AngleSlider min={0} max={180} step={1} text={'Polar angle'} />
           </li>
           <li>
             <AngleSlider min={0} max={360} step={1} text={'Azimuthal angle'} />
+          </li>
+          <li id="gates-title-container">
+            <h3 id="gates-title">Gates:</h3>
           </li>
           <li>
             <GateButton id={'hadamard-button'} name={'H'} />

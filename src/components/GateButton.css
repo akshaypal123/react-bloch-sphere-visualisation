@@ -1,7 +1,7 @@
 button {
-    background-color: gray; 
-    border: 2px solid white;
-    color: white;
+    background-color: rgb(19, 19, 19); 
+    border: 2px solid hotpink;
+    color: hotpink;
     padding: 1rem 5rem;
     text-align: center;
     text-decoration: none;
@@ -12,6 +12,7 @@ button {
   }
   
   button:hover {
-    background-color: black;
+    background-color: hotpink;
+    border: 2px solid white;
     color: white;
   }
