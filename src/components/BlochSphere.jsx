@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import AxisArrow from './AxisArrow.jsx'
 
 const BlochSphere = (props) => {

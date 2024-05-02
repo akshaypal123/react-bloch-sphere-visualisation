@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
-const AngleSlider2 = ({ min, max, step, text }) => {
-    const [data, setData] = useState(Math.round(max * Math.random()))
-
+const AngleSlider = (props) => {
     return (
         <div>
-            <p>{text + ' = ' + data.toString()}</p>
-            <input type='range' min={min} max={max} step={step} value={data} onChange={(e) => { setData(e.target.value); return e.target.value; }}></input>
+            <p>{props.text + ' = ' + props.angle.toString()}</p>
+            <input type='range' min={props.min} max={props.max} step={props.step} value={props.angle} onChange={(e) => props.handler(e.target.value)}></input>
         </div>
     )
 }
 
-export default AngleSlider2;
+export default AngleSlider;

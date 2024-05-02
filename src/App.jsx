@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import BlochSphere from './components/BlochSphere.jsx';
@@ -7,7 +8,15 @@ import GateButton from './components/GateButton.jsx';
 import AngleSlider from './components/AngleSlider.jsx';
 
 
+
 const App = () => {
+
+  const startingTheta = Math.round(180 * Math.random());
+  const startingPhi = Math.round(360 * Math.random());
+
+  const [theta, setTheta] = useState(startingTheta);
+  const [phi ,setPhi] = useState(startingPhi);
+  
   return (
     <>
       <Canvas>
@@ -21,10 +30,10 @@ const App = () => {
             <h3 id="angles-title">Angles:</h3>
           </li>
           <li>
-            <AngleSlider min={0} max={180} step={1} text={'Polar angle'} />
+            <AngleSlider min={0} max={180} step={1} text={'Polar angle'} angle={theta} handler={setTheta} />
           </li>
           <li>
-            <AngleSlider min={0} max={360} step={1} text={'Azimuthal angle'} />
+            <AngleSlider min={0} max={360} step={1} text={'Azimuthal angle'} angle={phi} handler={setPhi} />
           </li>
           <li id="gates-title-container">
             <h3 id="gates-title">Gates:</h3>
@@ -40,8 +49,6 @@ const App = () => {
     </>
   )
 }
-
-
 
 
 export default App;
