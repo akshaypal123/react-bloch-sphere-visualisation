@@ -1,28 +1,34 @@
+// Libraries
+import React, { useState, useEffect } from 'react';
+import { Canvas, useThree } from '@react-three/fiber';
+import { CameraControls } from '@react-three/drei';
+
+// CSS
 import './App.css';
-import React, { useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+
+// Components
+import AngleSlider from './components/AngleSlider.jsx';
 import BlochSphere from './components/BlochSphere.jsx';
 import CameraSetup from './components/CameraSetup.jsx';
 import GateButton from './components/GateButton.jsx';
-import AngleSlider from './components/AngleSlider.jsx';
-
-
+import QubitVector from './components/QubitVector.jsx';
 
 const App = () => {
 
   const startingTheta = Math.round(180 * Math.random());
   const startingPhi = Math.round(360 * Math.random());
+  const radius = 5;
 
   const [theta, setTheta] = useState(startingTheta);
-  const [phi ,setPhi] = useState(startingPhi);
-  
+  const [phi, setPhi] = useState(startingPhi);
+
   return (
     <>
       <Canvas>
-        <BlochSphere radius={5} color={'gray'} position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]} />
+        <BlochSphere radius={radius} color={'gray'} position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]} />
+        <QubitVector radius={radius} theta={theta} phi={phi} />
         <CameraSetup />
-        <OrbitControls target={[0, 0, 0]} />
+        <CameraControls target={[0, 0, 0]} />
       </Canvas>
       <nav className="navbar">
         <ul className="navbar-nav">
