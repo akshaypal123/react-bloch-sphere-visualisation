@@ -3,6 +3,7 @@ import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
 
 const AngleSlider = (props) => {
+    
     function determineLabel() {
         if(props.isTheta) {
             return (<p><Latex>{props.text} $\theta =$ ${props.angle.toString()}^\circ$</Latex></p>);
@@ -13,6 +14,7 @@ const AngleSlider = (props) => {
     }
 
     const label = determineLabel();
+    
     return (
         <div>
             {label}           
