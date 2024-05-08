@@ -11,7 +11,7 @@ const Wavefunction = (props) => {
 
         const alpha = Math.cos(theta * 0.5);
         const beta = math.multiply(math.exp(math.complex(0, phi)), Math.sin(theta * 0.5));
-        return [alpha, beta]
+        return [alpha, beta];
     }
 
     const globalAlpha = math.round(math.abs(calculateAlphaAndBeta()[0]), 3);
@@ -21,7 +21,6 @@ const Wavefunction = (props) => {
         <div id="wavefunction-container">
             <Latex>$\vert\psi\rangle$ = ${globalAlpha}\vert0\rangle$ $+$ ${globalBeta}\vert1\rangle$</Latex>
         </div>
-        
     )
 };
 
