@@ -18,7 +18,10 @@ const Wavefunction = (props) => {
     const globalBeta = math.round(math.abs(calculateAlphaAndBeta()[1]), 3);
 
     return (
-        <Latex>$\vert\psi\rangle$ = ${globalAlpha}\vert0\rangle$ $+$ ${globalBeta}\vert1\rangle$</Latex>
+        <div id="wavefunction-container">
+            <Latex>$\vert\psi\rangle$ = ${globalAlpha}\vert0\rangle$ $+$ ${globalBeta}\vert1\rangle$</Latex>
+        </div>
+        
     )
 };
 

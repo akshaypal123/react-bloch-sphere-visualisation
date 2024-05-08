@@ -37,10 +37,10 @@ const App = () => {
             <h3 id="angles-title">Angles:</h3>
           </li>
           <li>
-            <AngleSlider min={0} max={180} step={1} text={'Polar angle'} angle={theta} handler={setTheta} />
+            <AngleSlider min={0} max={180} step={1} text={'Polar angle'} angle={theta} isTheta={true} handler={setTheta} />
           </li>
           <li>
-            <AngleSlider min={0} max={360} step={1} text={'Azimuthal angle'} angle={phi} handler={setPhi} />
+            <AngleSlider min={0} max={360} step={1} text={'Azimuthal angle'} angle={phi} isTheta={false} handler={setPhi} />
           </li>
           <li id="gates-title-container">
             <h3 id="gates-title">Gates:</h3>
