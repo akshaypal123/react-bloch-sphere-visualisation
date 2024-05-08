@@ -45,7 +45,7 @@ const App = () => {
             <h3 id="gates-title">Gates:</h3>
           </li>
           <li>
-            <GateButton id={'hadamard-button'} name={'H'} />
+            <GateButton id={'hadamard-button'} name={'H'} theta={theta} setTheta={setTheta} phi={phi} setPhi={setPhi} />
           </li>
           <li>
             <GateButton id={'pauliX-button'} name={'P_X'} />

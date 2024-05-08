@@ -17,7 +17,7 @@ const QubitVector = (props) => {
     }
 
     useEffect(() => {
-        console.log('This is the useEffect hook!');
+        // console.log('This is the useEffect hook!');
         const existingLine = scene.getObjectByName('qubitLine');
         if (existingLine) {
             existingLine.material.dispose();
@@ -37,9 +37,10 @@ const QubitVector = (props) => {
         const qubitLine = new THREE.Line(lineGeometry, lineMaterial);
         scene.add(qubitLine);
         qubitLine.name = 'qubitLine'
-        console.log(qubitLine)
+        // console.log(qubitLine)
     }, [props.theta, props.phi, scene]);
 
+    // Calculate a global variable equal to the QubitVector in order to render the sphere at the tip of qubitLine
     const globalQubitVector = calculateQubitVector(props.radius, (props.theta * Math.PI / 180), (props.phi * Math.PI / 180));
 
     return (
