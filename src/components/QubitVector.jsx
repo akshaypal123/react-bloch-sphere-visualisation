@@ -13,17 +13,18 @@ const QubitVector = (props) => {
         const y = radius * Math.sin(theta) * Math.sin(phi);
         const z = radius * Math.cos(theta);
         const qubitVector = new THREE.Vector3(x, y, z);
-        return qubitVector
+        return qubitVector;
     }
 
     useEffect(() => {
-        // console.log('This is the useEffect hook!');
+        // Get existing line and delete it
         const existingLine = scene.getObjectByName('qubitLine');
         if (existingLine) {
             existingLine.material.dispose();
             existingLine.geometry.dispose();
             scene.remove(existingLine);
         }
+        // Calculate qubitVector and create new line geometry
         const qubitVector = calculateQubitVector(props.radius, (props.theta * Math.PI / 180), (props.phi * Math.PI / 180));
         const points = [];
         points.push(origin);
@@ -36,8 +37,8 @@ const QubitVector = (props) => {
         });
         const qubitLine = new THREE.Line(lineGeometry, lineMaterial);
         scene.add(qubitLine);
-        qubitLine.name = 'qubitLine'
-        // console.log(qubitLine)
+        // Name new line 
+        qubitLine.name = 'qubitLine';
     }, [props.theta, props.phi, scene]);
 
     // Calculate a global variable equal to the QubitVector in order to render the sphere at the tip of qubitLine
