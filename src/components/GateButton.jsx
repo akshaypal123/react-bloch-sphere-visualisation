@@ -1,4 +1,7 @@
 import './GateButton.css';
+import 'katex/dist/katex.min.css';
+import Latex from 'react-latex-next';
+
 
 const GateButton = (props) => {
     
@@ -7,8 +10,14 @@ const GateButton = (props) => {
             case 'H':
                 console.log('Pressed Hadamard Button');
                 break;
-            case 'P_X':
+            case 'P_x':
                 console.log('Pressed Pauli X Button');
+                break;
+            case 'P_y':
+                console.log('Pressed Pauli Y Button');
+                break;
+            case 'P_z':
+                console.log('Pressed Pauli Z Button');
                 break;
             default:
                 console.log('Button not implemented yet!');
@@ -16,7 +25,7 @@ const GateButton = (props) => {
     }
 
     return (
-        <button onClick={applyGateButton} id={props.id}>{props.name}</button>
+        <button onClick={applyGateButton} id={props.id}><Latex>${props.name}$</Latex></button>
     )
 }
 

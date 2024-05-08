@@ -1,6 +1,6 @@
 // Libraries
-import React, { useState, useEffect } from 'react';
-import { Canvas, useThree } from '@react-three/fiber';
+import React, { useState } from 'react';
+import { Canvas } from '@react-three/fiber';
 import { CameraControls } from '@react-three/drei';
 
 // CSS
@@ -12,6 +12,7 @@ import BlochSphere from './components/BlochSphere.jsx';
 import CameraSetup from './components/CameraSetup.jsx';
 import GateButton from './components/GateButton.jsx';
 import QubitVector from './components/QubitVector.jsx';
+import Wavefunction from './components/Wavefunction.jsx';
 
 const App = () => {
 
@@ -45,10 +46,22 @@ const App = () => {
             <h3 id="gates-title">Gates:</h3>
           </li>
           <li>
-            <GateButton id={'hadamard-button'} name={'H'} theta={theta} setTheta={setTheta} phi={phi} setPhi={setPhi} />
+            <GateButton id={'hadamard-button'} name={'H'} />
           </li>
           <li>
-            <GateButton id={'pauliX-button'} name={'P_X'} />
+            <GateButton id={'pauliX-button'} name={'P_x'} />
+          </li>
+          <li>
+            <GateButton id={'pauliY-button'} name={'P_y'} />
+          </li>
+          <li>
+            <GateButton id={'pauliZ-button'} name={'P_z'} />
+          </li>
+          <li id="wavefunction-title-container">
+            <h3 id="wavefunction-title">Wavefunction:</h3>
+          </li>
+          <li>
+            <Wavefunction theta={theta} phi={phi}/>
           </li>
         </ul>
       </nav>
