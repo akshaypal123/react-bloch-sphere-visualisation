@@ -1,6 +1,7 @@
 import './GateButton.css';
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
+import * as math from 'mathjs';
 
 
 const GateButton = (props) => {
@@ -9,6 +10,10 @@ const GateButton = (props) => {
         switch(props.name) {
             case 'H':
                 console.log('Pressed Hadamard Button');
+                const hMatrix = math.multiply(1 / math.sqrt(2), math.matrix([[1, 1], [1, -1]]));
+                const qubit = math.matrix([props.alpha, props.beta]);
+                const result = math.multiply(hMatrix, qubit)
+                props.stateToAngles(result)
                 break;
             case 'P_x':
                 console.log('Pressed Pauli X Button');

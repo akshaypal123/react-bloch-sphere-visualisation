@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { CameraControls } from '@react-three/drei';
+import * as math from 'mathjs';
 
 // CSS
 import './App.css';
@@ -22,6 +23,32 @@ const App = () => {
 
   const [theta, setTheta] = useState(startingTheta);
   const [phi, setPhi] = useState(startingPhi);
+  const [alpha, setAlpha] = useState(calculateStartingAlpha(theta));
+  const [beta, setBeta] = useState(calculateStartingBeta(theta, phi));
+
+  function calculateStartingAlpha(t) {
+    const theta = t * Math.PI / 180;
+
+    const alpha = Math.cos(theta * 0.5);
+    return (math.round(math.abs(alpha), 3));
+  }
+
+  function calculateStartingBeta(t, p) {
+    const theta = t * Math.PI / 180;
+    const phi = p * Math.PI / 180;
+
+    const beta = math.multiply(math.exp(math.complex(0, phi)), Math.sin(theta * 0.5));
+    return (math.round(math.abs(beta), 3));
+  }
+
+  function stateToAngles(qubit) {
+    console.log(qubit.get([0]));
+    const theta = 2 * Math.acos(math.abs(qubit.get([0])));
+    let phi = math.arg(qubit.get([1])); 
+    phi = phi < 0 ? 2 * Math.PI + phi : phi;
+    setTheta(math.round(theta * 180 / Math.PI));
+    setPhi(math.round(phi * 180/ Math.PI));
+  }
 
   return (
     <>
@@ -46,7 +73,7 @@ const App = () => {
             <h3 id="gates-title">Gates:</h3>
           </li>
           <li>
-            <GateButton id={'hadamard-button'} name={'H'} />
+            <GateButton id={'hadamard-button'} name={'H'} alpha={alpha} beta={beta} stateToAngles={stateToAngles} />
           </li>
           <li>
             <GateButton id={'pauliX-button'} name={'P_x'} />
@@ -61,7 +88,7 @@ const App = () => {
             <h3 id="wavefunction-title">Wavefunction:</h3>
           </li>
           <li>
-            <Wavefunction theta={theta} phi={phi}/>
+            <Wavefunction theta={theta} phi={phi} alpha={alpha} beta={beta} setAlpha={setAlpha} setBeta={setBeta} />
           </li>
         </ul>
       </nav>
