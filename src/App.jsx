@@ -1,5 +1,5 @@
 // Libraries
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { CameraControls } from '@react-three/drei';
 import * as math from 'mathjs';
@@ -76,13 +76,13 @@ const App = () => {
             <GateButton id={'hadamard-button'} name={'H'} alpha={alpha} beta={beta} stateToAngles={stateToAngles} />
           </li>
           <li>
-            <GateButton id={'pauliX-button'} name={'P_x'} />
+            <GateButton id={'pauliX-button'} name={'P_x'} alpha={alpha} beta={beta} stateToAngles={stateToAngles} />
           </li>
           <li>
-            <GateButton id={'pauliY-button'} name={'P_y'} />
+            <GateButton id={'pauliY-button'} name={'P_y'} alpha={alpha} beta={beta} stateToAngles={stateToAngles} />
           </li>
           <li>
-            <GateButton id={'pauliZ-button'} name={'P_z'} />
+            <GateButton id={'pauliZ-button'} name={'P_z'} alpha={alpha} beta={beta} stateToAngles={stateToAngles} />
           </li>
           <li id="wavefunction-title-container">
             <h3 id="wavefunction-title">Wavefunction:</h3>
