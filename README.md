@@ -1,8 +1,22 @@
-# React + Vite
+# Bloch Sphere Visualisation
+## Description 📄
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project builds an interactive visualisation of the Bloch sphere from quantum computing. The Bloch sphere allows us to visualise the qubit as a vector on the surface of a sphere
 
-Currently, two official plugins are available:
+## Features ✨
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Rendering of Bloch sphere and qubit vector using **Three.js and React Three Fibre**
+- Angle sliders you can **drag and click** interactively to adjust the qubit state
+- **Four quantum gates** to manipulate the qubit
+
+## Tech Stack 🛠️
+
+- **HTML5**
+- **CSS3**
+- **React**
+- **React Three Fibre**
+- **Three.js**
+- **Vite.js**
+
+
+You can access the website [here](https://akshaypal123.github.io/react-bloch-sphere-visualisation/).
